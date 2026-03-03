@@ -1,0 +1,226 @@
+                SENDER SIDE (Data Going Out)
+┌──────────────────────────────────────────────────────┐
+│ LAYER 7 — APPLICATION                               │
+│ ---------------------------------------------------- │
+│ What happens?                                        │
+│ - User interacts with app (browser, email, etc.)    │
+│ - Creates raw application data                       │
+│ Example protocols: HTTP, FTP, SMTP, DNS             │
+│ PDU: Data                                            │
+└──────────────────────────────────────────────────────┘
+                          ↓
+┌──────────────────────────────────────────────────────┐
+│ LAYER 6 — PRESENTATION                              │
+│ ---------------------------------------------------- │
+│ What happens?                                        │
+│ - Encryption (TLS/SSL)                               │
+│ - Compression                                        │
+│ - Format translation (JSON, XML, JPEG encoding)     │
+│ PDU: Data (formatted)                                │
+└──────────────────────────────────────────────────────┘
+                          ↓
+┌──────────────────────────────────────────────────────┐
+│ LAYER 5 — SESSION                                   │
+│ ---------------------------------------------------- │
+│ What happens?                                        │
+│ - Opens, manages, closes session                    │
+│ - Keeps track of conversation state                 │
+│ Example: Login sessions, API sessions               │
+│ PDU: Data                                            │
+└──────────────────────────────────────────────────────┘
+                          ↓
+┌──────────────────────────────────────────────────────┐
+│ LAYER 4 — TRANSPORT                                 │
+│ ---------------------------------------------------- │
+│ What happens?                                        │
+│ - Breaks data into segments                          │
+│ - Adds PORT numbers                                  │
+│ - Reliability (TCP) or fast delivery (UDP)         │
+│ - Flow control & error recovery                     │
+│ PDU: SEGMENT (TCP) / DATAGRAM (UDP)                 │
+└──────────────────────────────────────────────────────┘
+                          ↓
+┌──────────────────────────────────────────────────────┐
+│ LAYER 3 — NETWORK                                   │
+│ ---------------------------------------------------- │
+│ What happens?                                        │
+│ - Adds SOURCE and DESTINATION IP addresses          │
+│ - Decides best route to destination                 │
+│ - Logical addressing                                 │
+│ PDU: PACKET                                          │
+└──────────────────────────────────────────────────────┘
+                          ↓
+┌──────────────────────────────────────────────────────┐
+│ LAYER 2 — DATA LINK                                 │
+│ ---------------------------------------------------- │
+│ What happens?                                        │
+│ - Adds MAC addresses                                 │
+│ - Frame synchronization                              │
+│ - Error detection (CRC)                              │
+│ - Local network delivery                             │
+│ PDU: FRAME                                           │
+└──────────────────────────────────────────────────────┘
+                          ↓
+┌──────────────────────────────────────────────────────┐
+│ LAYER 1 — PHYSICAL                                  │
+│ ---------------------------------------------------- │
+│ What happens?                                        │
+│ - Converts frame into electrical/light/radio signals│
+│ - Sends bits over cable/wifi                        │
+│ PDU: BITS                                            │
+└──────────────────────────────────────────────────────┘
+
+BITS → FRAME → PACKET → SEGMENT → DATA
+
+443 (HTTPS)
+
+80 (HTTP)
+
+22 (SSH)
+
+MAC = local delivery
+
+IP = global delivery
+
+HTTP
+
+FTP
+
+SMTP
+
+DNS
+
+TCP/IP:---------------------------------------------------------------------------------------------------------------
+
+1️⃣ NETWORK ACCESS Layer
+
+(Combination of OSI Layer 1 + 2)
+
+This is where:
+
+Ethernet works
+
+Wi-Fi works
+
+MAC addresses exist
+
+Frames are created
+
+Bits move across cable or air
+
+This layer handles:
+
+Physical transmission
+
+Local delivery inside a LAN
+
+Equivalent to:
+
+OSI Physical
+
+OSI Data Link
+
+PDU:
+Frame → Bits
+
+2️⃣ INTERNET Layer
+
+(Equivalent to OSI Layer 3)
+
+This is the most important difference.
+
+This layer is responsible for:
+
+Logical addressing (IP)
+
+Routing across networks
+
+Packet forwarding
+
+Key protocol here:
+
+Internet Protocol (IP)
+
+IP does NOT:
+
+Guarantee delivery
+
+Ensure order
+
+Ensure reliability
+
+It only says:
+
+“Here’s the destination IP. Best effort delivery.”
+
+PDU:
+Packet
+
+Routers operate here.
+
+3️⃣ TRANSPORT Layer
+
+(Equivalent to OSI Layer 4)
+
+This is where communication becomes controlled.
+
+Two main protocols live here:
+
+Transmission Control Protocol (TCP)
+
+User Datagram Protocol (UDP)
+
+TCP
+
+Reliable
+
+Ordered
+
+Error-checked
+
+Uses 3-way handshake
+
+Slower but safe
+
+UDP
+
+Fast
+
+No guarantee
+
+No ordering
+
+Used for streaming, gaming
+
+PDU:
+Segment (TCP)
+Datagram (UDP)
+
+Ports (80, 443, 22) exist here.
+
+4️⃣ APPLICATION Layer
+
+(Combination of OSI 5, 6, 7)
+
+This is where real-world protocols live:
+
+Hypertext Transfer Protocol (HTTP)
+
+File Transfer Protocol (FTP)
+
+Simple Mail Transfer Protocol (SMTP)
+
+Domain Name System (DNS)
+
+This layer handles:
+
+Data formatting
+
+Encryption (via TLS)
+
+Session handling
+
+Application communication
+
+PDU:
+Data
