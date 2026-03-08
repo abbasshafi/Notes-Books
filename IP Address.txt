@@ -1,0 +1,4 @@
+IP format:
+N.N.N.N
+
+with each no range from 0-255 in decimal and in binary each N is 8 bits amd the whole is 32 bits
